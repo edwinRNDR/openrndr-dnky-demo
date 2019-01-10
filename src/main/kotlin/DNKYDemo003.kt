@@ -7,6 +7,9 @@ import org.openrndr.extras.meshgenerators.*
 import org.openrndr.math.Vector3
 import org.openrndr.math.transforms.transform
 
+/*
+Same as DNKYDemo001 but using the photographic renderer preset
+ */
 fun main() = application {
     configure {
         width = 1920
@@ -15,6 +18,11 @@ fun main() = application {
     program {
         extend(Debug3D())
         extend(DNKY()) {
+            val pr = photographicRenderer()
+            pr.aperture = 2.0
+            pr.focalPlane = 4.0
+            pr.exposure = 0.5
+            sceneRenderer = pr.renderer
             scene = scene {
                 node {
                     hemisphereLight {
@@ -67,14 +75,14 @@ fun main() = application {
                                     filter(MinifyingFilter.LINEAR_MIPMAP_LINEAR, MagnifyingFilter.LINEAR)
                                 }, sharpness = 5.0, scale = 0.06)
                             }
-//                            texture {
-//                                target = TextureTarget.NORMAL
-//                                source = Triplanar(texture = loadImage("data/ground_normal.png").apply {
-//                                    wrapU = WrapMode.REPEAT
-//                                    wrapV = WrapMode.REPEAT
-//                                    filter(MinifyingFilter.LINEAR_MIPMAP_LINEAR, MagnifyingFilter.LINEAR)
-//                                }, sharpness = 1.0, scale = 0.06)
-//                            }
+                            texture {
+                                target = TextureTarget.NORMAL
+                                source = Triplanar(texture = loadImage("data/ground_normal.png").apply {
+                                    wrapU = WrapMode.REPEAT
+                                    wrapV = WrapMode.REPEAT
+                                    filter(MinifyingFilter.LINEAR_MIPMAP_LINEAR, MagnifyingFilter.LINEAR)
+                                }, sharpness = 1.0, scale = 0.06)
+                            }
                         }
                     }
                 }
