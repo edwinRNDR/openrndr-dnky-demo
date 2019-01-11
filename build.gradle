@@ -40,7 +40,7 @@ switch (org.gradle.internal.os.OperatingSystem.current()) {
         break
 }
 
-ext.orxVersion = "0.0.17"
+ext.orxVersion = "0.0.18"
 ext.dnkyVersion = "0.0.2-SNAPSHOT"
 ext.numateVersion = "0.3.0-SNAPSHOT"
 
@@ -56,7 +56,7 @@ dependencies {
     compile "org.openrndr:openrndr-filter:$openrndrVersion"
     compile "org.openrndr:openrndr-ffmpeg:$openrndrVersion"
 
-    compile 'com.github.edwinrndr:openrndr-dnky:706e36f48f'
+    compile 'com.github.edwinrndr:openrndr-dnky:d451be8283'
     compile 'com.github.edwinRNDR:numate:2afc3cf338'
     compile "com.github.openrndr.orx:orx-mesh-generators:v$orxVersion"
     compile "com.github.openrndr.orx:orx-noise:v$orxVersion"
